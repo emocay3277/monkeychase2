@@ -1,7 +1,9 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
 
 function preload() {
-
+    game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
+    
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
@@ -15,11 +17,20 @@ var keys;
 var player;
 var ground;
 var platforms;
-
+var map;
+var blockingLayer;
 function create() {
+
 
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
+    
+    //setting up map 
+    map = game.add.tilemap('xiomara-map');
+    map.addTilesetImage('owlishmedia_pixel_tiles','xiomara-tile');
+    blockingLayer = map.createLayer('solid');
+    
+    map.setCollisionBetween(0,300,true,'solid');
     
     game.add.sprite(20, 20, 'star');
     
@@ -69,6 +80,8 @@ function create() {
 }
 
 function update() {
+    
+    game.physics.arcade.collide(player,blockingLayer);
     // Check for collisions between the player and the ground
     game.physics.arcade.collide(player, ground);
     
@@ -96,7 +109,7 @@ function update() {
         player.frame = 4;
     }
     
-    if (keys.up.isDown && player.body.touching.down) {
+    if (keys.up.isDown) {
         player.body.velocity.y = -350;
     }
 }

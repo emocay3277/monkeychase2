@@ -5,10 +5,11 @@ function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48); game.load.image('babymonkey', 'assets/motionlessmonkey.gif');
+    game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+    game.load.image('babymonkey', 'assets/motionlessmonkey.gif');
 game.load.spritesheet('bmonkey', 'assets/monkeyrightkey.png', 32, 32);
     
-    game.load.spritesheet('lookingtiger', 'lookingtiger.png', 32, 32);
+    game.load.spritesheet('lokingtiger', 'lookingtiger.png', 32, 32);
 }
 
 // Any variables that we want to use in both create() and update()
@@ -25,9 +26,7 @@ function create() {
     
     game.add.sprite(20, 20, 'star');
     
-     game.add.sprite(20, 20, 'tree');
-    
-    
+    game.add.sprite(20, 20, 'babymonkey');
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
@@ -45,8 +44,8 @@ function create() {
     ground.body.immovable = true;
     
     // The player and its settings
-    player = game.add.sprite(100, game.world.height - 360, 'recentmonkeyanimation.png');
-   
+    player = game.add.sprite(100, game.world.height - 360, 'bmonkey');
+    
     //  We need to enable physics on the player so that it can move and bounce off stuff
     game.physics.arcade.enable(player);
     
@@ -94,7 +93,7 @@ function update() {
         player.body.velocity.x = 0;
         
         //  Stand still
-        player.animations.stop(motionlessmonkey.png);
+        player.animations.stop('motionlessmonkey.png');
         
         // Reset animation frame
         player.frame = 4;
@@ -111,9 +110,9 @@ function update() {
 
 
 
- 
- 
- 
+
+
+
 
 
 

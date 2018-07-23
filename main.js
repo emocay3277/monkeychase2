@@ -1,12 +1,14 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
 
 function preload() {
-
+    game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
+    
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48); game.load.image('babymonkey', 'assets/motionlessmonkey.gif');
-game.load.spritesheet('bmonkey', 'assets/monkeyrightkey.png', 32, 32);
+  
+game.load.spritesheet('bmonkey', 'assets/(1234)monkeyanimation.png', 32, 32);
 }
 
 // Any variables that we want to use in both create() and update()
@@ -15,15 +17,24 @@ var keys;
 var player;
 var ground;
 var platforms;
-
+var map;
+var blockingLayer;
 function create() {
 
-    //  A simple background for our game
+
+    //  A simple background for our gam
     game.add.sprite(0, 0, 'sky');
+    
+    //setting up map 
+    map = game.add.tilemap('xiomara-map');
+    map.addTilesetImage('owlishmedia_pixel_tiles','xiomara-tile');
+    blockingLayer = map.createLayer('solid');
+    
+    map.setCollisionBetween(0,300,true,'solid');
     
     game.add.sprite(20, 20, 'star');
     
-    game.add.sprite(20, 20, 'babymonkey');
+    
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
@@ -53,8 +64,8 @@ function create() {
     keys = game.input.keyboard.createCursorKeys();
     
     // Add animations to the player
-    player.animations.add('left', [0, 1, 2, 3], 10, true);
-    player.animations.add('right', [0, 1, 2, 3, 4, 5], 10, true);
+    player.animations.add('left', [ 1, 2, 3, 4, 5], 10, true);
+    player.animations.add('right', [ 7, 9, 7, 9], 10, true);
     
     //  Now let's create two ledges
     var ledge1 = platforms.create(400, 400, 'ground');
@@ -69,6 +80,8 @@ function create() {
 }
 
 function update() {
+    
+    game.physics.arcade.collide(player,blockingLayer);
     // Check for collisions between the player and the ground
     game.physics.arcade.collide(player, ground);
     
@@ -93,10 +106,10 @@ function update() {
         player.animations.stop();
         
         // Reset animation frame
-        player.frame = 4;
+        player.frame = 6;
     }
     
-    if (keys.up.isDown && player.body.touching.down) {
+    if (keys.up.isDown) {
         player.body.velocity.y = -350;
     }
 }

@@ -8,7 +8,7 @@ function preload() {
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48); game.load.image('babymonkey', 'assets/motionlessmonkey.gif');
-    game.load.spritesheet('bmonkey', 'assets/monkeyrightkey.png', 32, 32);
+    game.load.spritesheet('bmonkey', 'assets/(1234)monkeyanimation.png', 32, 32);
 }
 
 // Any variables that we want to use in both create() and update()
@@ -66,7 +66,7 @@ function create() {
     
     // Add animations to the player
     player.animations.add('left', [0, 1, 2, 3], 10, true);
-    player.animations.add('right', [0, 1, 2, 3, 4, 5], 10, true);
+    player.animations.add('right',[7,9],10,true);
     
     map.setCollisionBetween(0, 300, true, 'court.object.layer');
     
@@ -112,7 +112,7 @@ function update() {
         player.animations.stop();
         
         // Reset animation frame
-        player.frame = 4;
+        player.frame = 6;
     }
     
     if (this.spaceKey.isDown) {

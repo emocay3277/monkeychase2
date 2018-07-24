@@ -1,4 +1,11 @@
-function preload() {
+var xioLevel = {
+    preload: preloadxio,
+    create: createxio,
+    update: updatexio
+};
+game.state.add('second-level',xioLevel);
+
+function preloadxio() {
     game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
     
@@ -17,7 +24,7 @@ var ground;
 var platforms;
 var map;
 var blockingLayer;
-function create() {
+function createxio() {
     
     
     
@@ -76,7 +83,7 @@ function create() {
 
 
 
-function update() {
+function updatexio() {
     game.physics.arcade.collide(player,blockingLayer);
     game.physics.arcade.collide(tiger,blockingLayer);
    

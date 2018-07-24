@@ -1,5 +1,3 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
-
 function preload() {
     game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');

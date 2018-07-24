@@ -69,10 +69,9 @@ function createxio() {
     player.animations.add('left', [ 1, 2, 3, 4, 5], 10, true);
     player.animations.add('right', [ 7, 9, 7, 9], 10, true);
     
-
-    // Prevent the ledges from moving
-    ledge1.body.immovable = true;
-    ledge2.body.immovable = true;
+    
+    game.world.setBounds(0, 0, 7550, 3800);
+    game.camera.follow(player);
 }
 
 

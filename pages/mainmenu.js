@@ -46,7 +46,7 @@ var mainmenuState = {
         text.inputEnabled = true;
         
         var startSecondLevel = function() {
-            game.state.start('second-level');
+            game.state.start('xiomara-level');
                 
         }
         text.events.onInputDown.add(startSecondLevel);

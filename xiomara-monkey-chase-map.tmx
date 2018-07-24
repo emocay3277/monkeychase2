@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="100" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
- <tileset firstgid="1" name="owlishmedia_pixel_tiles" tilewidth="32" tileheight="32" tilecount="350" columns="14">
+ <tileset firstgid="1" name="owlishmedia_pixel_tiles" tilewidth="32" tileheight="32" tilecount="0" columns="14">
   <image source="../owlishmedia_pixel_tiles.png" width="448" height="800"/>
  </tileset>
  <layer name="solid" width="100" height="30">

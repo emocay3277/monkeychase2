@@ -6,7 +6,7 @@ var xiomaraLevel = {
 
 game.state.add('xiomara-level', xiomaraLevel);
 
-function preload() {
+function preloadXiomara() {
     game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
     
@@ -25,7 +25,7 @@ var ground;
 var platforms;
 var map;
 var blockingLayer;
-function create() {
+function createXiomara() {
 
 
     //  A simple background for our gam
@@ -79,13 +79,12 @@ function create() {
     
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
-    
-    // Prevent the ledges from moving
-    ledge1.body.immovable = true;
-    ledge2.body.immovable = true;
+
+    game.world.setBounds(0, 0, 3550, 3800);
+    game.camera.follow(player);
 }
 
-function update() {
+function updateXiomara() {
     
     game.physics.arcade.collide(player,blockingLayer);
     // Check for collisions between the player and the ground

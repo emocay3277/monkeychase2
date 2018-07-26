@@ -1,11 +1,19 @@
-function preload() {
+var xiomaraLevel = {
+    preload: preloadXiomara,
+    create: createXiomara,
+    update: updateXiomara,
+};
+
+game.state.add('xiomara-level', xiomaraLevel);
+
+function preloadXiomara() {
     game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
     
     game.load.image('sky', 'assets/realbackbroung.png.jpeg');
-   
+    game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
-   game.load.spritesheet('tiger', 'assets/tiger.png', 32, 26);
+  
     game.load.spritesheet('bmonkey', 'assets/(1234)monkeyanimation.png', 32, 32);
 }
 
@@ -17,11 +25,11 @@ var ground;
 var platforms;
 var map;
 var blockingLayer;
-function create() {
-     game.world.setBounds(0, 0, 1920, 1920); 
-    
-    
-    //  A simple background for our game
+
+function createXiomara() {
+    game.world.setBounds(0, 0, 1920, 1920); 
+
+    //  A simple background for our gam
     game.add.sprite(0, 0, 'sky');
     
     //setting up map 
@@ -34,17 +42,21 @@ function create() {
     game.add.sprite(20, 20, 'star');
     
     
-
     
-    // computer and its settings
-    tiger = game.add.sprite (166, 205, 'tiger');
-     tiger.scale.setTo(2, 2);
+    //  The platforms group contains the ground and the 2 ledges we can jump on
+    platforms = game.add.group();
     
-     // Add animations to the computer
-    tiger.animations.add('left', [ 4, 5, 6], 10, true);
-    tiger.animations.add('right', [ 1, 2, 3,], 10, true); 
-      game.physics.arcade.enable(tiger);
-    tiger.body.gravity.y = 300;
+    // Here we create the ground.
+    ground = platforms.create(0, game.world.height - 64, 'ground');
+    
+    //  Double the size of the platform (vertically by 2 and horizontally by 2)
+    ground.scale.setTo(2, 2);
+    
+    //  We need to enable physics on the ground so that it can move and collide with stuff
+    game.physics.arcade.enable(ground);
+    
+    //  This stops the ground from falling away when you jump on it
+    ground.body.immovable = true;
     
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 360, 'bmonkey');
@@ -63,24 +75,23 @@ function create() {
     player.animations.add('left', [ 1, 2, 3, 4, 5], 10, true);
     player.animations.add('right', [ 7, 9, 7, 9], 10, true);
     
+    //  Now let's create two ledges
+    var ledge1 = platforms.create(400, 400, 'ground');
+    var ledge2 = platforms.create(-150, 250, 'ground');
+    
+    // Enable physics on the platforms so you can collide with them
+    game.physics.arcade.enable(platforms);
 
-    // Prevent the ledges from moving
-    ledge1.body.immovable = true;
-    ledge2.body.immovable = true;
+    game.world.setBounds(0, 0, 3550, 3800);
+    game.camera.follow(player);
 }
 
-
-
-
-
-
-
-
-
-function update() {
+function updateXiomara() {
+    
     game.physics.arcade.collide(player,blockingLayer);
-    game.physics.arcade.collide(tiger,blockingLayer);
-   
+    // Check for collisions between the player and the ground
+    game.physics.arcade.collide(player, ground);
+    
     // Check for collisions between the player and all platforms
     game.physics.arcade.collide(player, platforms);
     

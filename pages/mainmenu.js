@@ -12,19 +12,21 @@ var mainmenuState = {
         background.animations.play('monkeypic');
         
         var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "left", boundsAlignV: "middle" };
+        //
+        text = game.add.text(625, 50, "Monkey Chase", style);
         
         // How to play
-        text = game.add.text(100, 180, "How to play", style);
+        text = game.add.text(100, 200, "How to play", style);
         text.inputEnabled = true;
         text.events.onInputDown.add(function() {
             game.state.start('howtoplay')
         });
         
         // Main menu
-        text = game.add.text(100, 100, "Main Menu", style);
+        text = game.add.text(650, 100, "Main Menu", style);
         
         // Start level 1
-        text = game.add.text(50, 150, "Start Level 1", style);
+        text = game.add.text(50, 200, "Start Level 1", style);
         text.setTextBounds(50, 150, 800, 100);
         text.inputEnabled = true;
         text.events.onInputDown.add(function() {
@@ -32,7 +34,7 @@ var mainmenuState = {
         });
         
         //  Start level 2
-        text = game.add.text(50, 250, "Start Level 2", style);
+        text = game.add.text(50, 300, "Start Level 2", style);
         text.setTextBounds(50, 250, 800, 100);
         text.inputEnabled = true;
         text.events.onInputDown.add(function() {

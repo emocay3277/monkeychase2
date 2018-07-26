@@ -27,7 +27,7 @@ var map;
 var blockingLayer;
 
 function createXiomara() {
-    game.world.setBounds(0, 0, 1920, 1920); 
+    game.world.setBounds(0, 0, 2700, 1120); 
 
     //  A simple background for our gam
     game.add.sprite(0, 0, 'sky');
@@ -36,12 +36,14 @@ function createXiomara() {
     map = game.add.tilemap('xiomara-map');
     map.addTilesetImage('owlishmedia_pixel_tiles','xiomara-tile');
     blockingLayer = map.createLayer('solid');
+    map.createLayer('trees/vines');
+    map.createLayer('water');
+    map.createLayer('background');
+    map.createLayer('sand');
     
     map.setCollisionBetween(0,300,true,'solid');
     
     game.add.sprite(20, 20, 'star');
-    
-    
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
@@ -59,12 +61,11 @@ function createXiomara() {
     ground.body.immovable = true;
     
     // The player and its settings
-    player = game.add.sprite(32, game.world.height - 360, 'bmonkey');
+    player = game.add.sprite(32, game.world.height - 660, 'bmonkey');
     game.camera.follow(player);
     
     //  We need to enable physics on the player so that it can move and collide with stuff
     game.physics.arcade.enable(player);
-    
     //  Player physics properties.
     player.body.gravity.y = 300;
     

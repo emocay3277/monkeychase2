@@ -2,7 +2,7 @@ function preload() {
     game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
     
-    game.load.image('sky', 'assets/sky.png');
+    game.load.image('sky', 'assets/realbackbroung.png.jpeg');
    
     game.load.image('star', 'assets/star.png');
    game.load.spritesheet('tiger', 'assets/tiger.png', 32, 26);
@@ -18,7 +18,7 @@ var platforms;
 var map;
 var blockingLayer;
 function create() {
-    
+     game.world.setBounds(0, 0, 1920, 1920); 
     
     
     //  A simple background for our game
@@ -48,6 +48,7 @@ function create() {
     
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 360, 'bmonkey');
+    game.camera.follow(player);
     
     //  We need to enable physics on the player so that it can move and collide with stuff
     game.physics.arcade.enable(player);

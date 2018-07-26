@@ -10,7 +10,7 @@ function preloadCourt() {
 
     game.load.tilemap('courtmap', 'court-Monkeychase-map.json',null, Phaser.Tilemap.TILED_JSON);
     game.load.image('tiles', 'owlishmedia_pixel_tiles.png'); 
-    game.load.image('sky', 'assets/sky.png');
+    game.load.image('sky', 'assets/realbackbroung.png.jpeg');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48); game.load.image('babymonkey', 'assets/motionlessmonkey.gif');
@@ -42,7 +42,7 @@ function createCourt() {
     game.add.sprite(20, -100, 'babymonkey');
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
-    platforms = game.add.group();
+    platforms = game.add.group(); 
     
     // Here we create the ground.
     //ground = platforms.create(0, game.world.height - 64, 'ground');
@@ -87,7 +87,7 @@ function createCourt() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     
-    game.world.setBounds(0, 0, 3550, 3800);
+    game.world.setBounds(0, 0, 3200, 1260);
     game.camera.follow(player);
 }
 

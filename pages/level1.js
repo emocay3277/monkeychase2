@@ -32,7 +32,7 @@ function createCourt() {
 
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
-     game.add.sprite(925, 520, 'mamamonkey');
+     game.add.sprite(925, 539, 'mamamonkey');
     
     map = game.add.tilemap('courtmap');
     
@@ -46,6 +46,25 @@ function createCourt() {
     game.add.sprite(20, -100, 'babymonkey');
     
     var tigerNumberOne = game.add.sprite(434, 210, 'tiger');
+    tigerNumberOne.scale.setTo(2, 2);
+    
+    
+     var tigerNumbertwo = game.add.sprite(812, 210, 'tiger');
+    tigerNumberOne.scale.setTo(2, 2);
+    
+     var tigerNumberthree = game.add.sprite(775, 210, 'tiger');
+    tigerNumberOne.scale.setTo(2, 2);
+    
+     var tigerNumberfour = game.add.sprite(304, 210, 'tiger');
+    tigerNumberOne.scale.setTo(2, 2);
+    
+     var tigerNumberfive = game.add.sprite(1061, 210, 'tiger');
+    tigerNumberOne.scale.setTo(2, 2);
+    
+     var tigerNumbersix = game.add.sprite(345, 210, 'tiger');
+    tigerNumberOne.scale.setTo(2, 2);
+    
+     var tigerNumberseven = game.add.sprite(1015, 548, 'tiger');
     tigerNumberOne.scale.setTo(2, 2);
     
     //  The platforms group contains the ground and the 2 ledges we can jump on

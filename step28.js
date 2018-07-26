@@ -1,3 +1,4 @@
+
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
 
 function preload() {
@@ -6,7 +7,7 @@ function preload() {
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-
+   game.load.spritesheet('mamamonkey', 'assets/mamamonkey.png'),
 }
 
 // Any variables that we want to use in both create() and update()
@@ -23,6 +24,8 @@ function create() {
     
     game.add.sprite(20, 20, 'star');
     
+    game.add.sprite( 1302, 514, 'mamamonkey','assets/mamamonkey.png');
+                                
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
     

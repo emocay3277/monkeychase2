@@ -13,8 +13,10 @@ function preloadCourt() {
     game.load.image('sky', 'assets/realbackground.jpeg');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48); game.load.image('babymonkey', 'assets/motionlessmonkey.gif');
+    game.load.image('babymonkey', 'assets/motionlessmonkey.gif');
     game.load.spritesheet('bmonkey', 'assets/(1234)monkeyanimation.png', 32, 32);
+    game.load.spritesheet('tiger', 'assets/tiger.png', 32, 26);
+    game.load.image('mamamonkey', 'assets/mamamonkey.png');
 }
 
 // Any variables that we want to use in both create() and update()
@@ -30,8 +32,9 @@ function createCourt() {
 
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
+     game.add.sprite(925, 520, 'mamamonkey');
     
-    map=game.add.tilemap('courtmap');
+    map = game.add.tilemap('courtmap');
     
     map.addTilesetImage('owlishmedia_pixel_tiles','tiles')
     
@@ -40,6 +43,9 @@ function createCourt() {
     game.add.sprite(20, 20, 'star');
     
     game.add.sprite(20, -100, 'babymonkey');
+    
+    var tigerNumberOne = game.add.sprite(434, 210, 'tiger');
+    tigerNumberOne.scale.setTo(2, 2);
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group(); 

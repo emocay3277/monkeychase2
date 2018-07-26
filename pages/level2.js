@@ -10,7 +10,7 @@ function preloadXiomara() {
     game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
     
-    game.load.image('sky', 'assets/realbackbroung.png.jpeg');
+    game.load.image('sky', 'assets/realbackground.jpeg');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
   
@@ -29,7 +29,7 @@ var blockingLayer;
 function createXiomara() {
     game.world.setBounds(0, 0, 2700, 1120); 
 
-    //  A simple background for our gam
+    //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
     
     //setting up map 
@@ -120,6 +120,6 @@ function updateXiomara() {
     }
     
     if (this.spaceKey.isDown) {
-        player.body.velocity.y = -350;
+        player.body.velocity.y = -250;
     }
 }

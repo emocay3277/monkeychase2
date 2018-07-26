@@ -36,6 +36,7 @@ function createCourt() {
     map.addTilesetImage('owlishmedia_pixel_tiles','tiles')
     
     mainlayer = map.createLayer('court.object.layer')
+    map.createLayer('water');
     
     game.add.sprite(20, 20, 'star');
     
@@ -77,15 +78,11 @@ function createCourt() {
     map.setCollisionBetween(0, 300, true, 'court.object.layer');
     
     //  Now let's create two ledges
-    var ledge1 = platforms.create(400, 400, 'ground');
-    var ledge2 = platforms.create(-150, 250, 'ground');
     
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
     
     // Prevent the ledges from moving
-    ledge1.body.immovable = true;
-    ledge2.body.immovable = true;
     
     game.world.setBounds(0, 0, 3200, 1260);
     game.camera.follow(player);

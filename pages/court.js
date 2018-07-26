@@ -10,7 +10,7 @@ function preloadCourt() {
 
     game.load.tilemap('courtmap', 'court-Monkeychase-map.json',null, Phaser.Tilemap.TILED_JSON);
     game.load.image('tiles', 'owlishmedia_pixel_tiles.png'); 
-    game.load.image('sky', 'assets/realbackbroung.png.jpeg');
+    game.load.image('sky', 'assets/realbackground.jpeg');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48); game.load.image('babymonkey', 'assets/motionlessmonkey.gif');

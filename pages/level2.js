@@ -85,7 +85,7 @@ function createXiomara() {
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
 
-    game.world.setBounds(0, 0, 3550, 3800);
+    game.world.setBounds(0, 0, 3200, 960);
     game.camera.follow(player);
 }
 

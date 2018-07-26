@@ -122,6 +122,6 @@ function updateCourt() {
     }
     
     if (this.spaceKey.isDown) {
-        player.body.velocity.y = -350;
+        player.body.velocity.y = -250;
     }
 }

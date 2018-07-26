@@ -10,11 +10,11 @@ function preloadXiomara() {
     game.load.tilemap('xiomara-map', 'xiomara-monkey-chase-map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('xiomara-tile', 'owlishmedia_pixel_tiles.png');
     
-    game.load.image('sky', 'assets/sky.png');
+    game.load.image('sky', 'assets/realbackbroung.png.jpeg');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
   
-game.load.spritesheet('bmonkey', 'assets/(1234)monkeyanimation.png', 32, 32);
+    game.load.spritesheet('bmonkey', 'assets/(1234)monkeyanimation.png', 32, 32);
 }
 
 // Any variables that we want to use in both create() and update()
@@ -25,8 +25,9 @@ var ground;
 var platforms;
 var map;
 var blockingLayer;
-function createXiomara() {
 
+function createXiomara() {
+    game.world.setBounds(0, 0, 1920, 1920); 
 
     //  A simple background for our gam
     game.add.sprite(0, 0, 'sky');
@@ -59,6 +60,7 @@ function createXiomara() {
     
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 360, 'bmonkey');
+    game.camera.follow(player);
     
     //  We need to enable physics on the player so that it can move and collide with stuff
     game.physics.arcade.enable(player);

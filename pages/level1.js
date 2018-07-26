@@ -27,12 +27,14 @@ var ground;
 var platforms;
 var map; 
 var mainlayer;
-
+var mamamonkey; 
 function createCourt() {
 
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
-     game.add.sprite(925, 520, 'mamamonkey');
+    
+    mamamonkey = game.add.sprite(925, 520, 'mamamonkey');
+    game.physics.arcade.enable(mamamonkey);
     
     map = game.add.tilemap('courtmap');
     
@@ -103,6 +105,10 @@ function updateCourt() {
     game.physics.arcade.collide(player, platforms);
     
     game.physics.arcade.collide(player, mainlayer);
+    
+    game.physics.arcade.overlap(mamamonkey, player, function() {
+        game.state.start('youwin')
+    });
     
     if (keys.left.isDown) {
         //  Move to the left

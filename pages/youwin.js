@@ -1,4 +1,4 @@
-var howtoplayState = {
+var youwinState = {
 
     preload: function(){
         
@@ -9,11 +9,11 @@ var howtoplayState = {
         
         var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "left", boundsAlignV: "middle" };
 
-        background = game.add.sprite(0, 0, 'you win');
-        background.scale.setTo(1.7, 1.7)
+        background = game.add.sprite(0, 0, 'you winpicture.jpg');
+        background.scale.setTo(1.1, 1.1)
 
-        text = game.add.text(40, 100, "Congratulations YOU WIN!!", style);
-        text = game.add.text(40, 300, "Back To Manimenu", style);
+        text = game.add.text(500, 75, "Congratulations YOU WIN!!", style);
+        text = game.add.text(100, 300, "Back To Mainmenu", style);
         
         text.inputEnabled = true;
         text.events.onInputDown.add(function() {
@@ -23,4 +23,4 @@ var howtoplayState = {
     }
 }
 
-game.state.add('howtoplay', howtoplayState);
+game.state.add('youwin', youwinState);

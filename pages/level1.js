@@ -62,6 +62,7 @@ function createCourt() {
     
     //  We need to enable physics on the player so that it can move and collide with stuff
     game.physics.arcade.enable(player);
+    player.body.collideWorldBounds=true;
     
     //  Player physics properties.
     player.body.gravity.y = 300;

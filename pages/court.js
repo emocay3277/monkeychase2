@@ -42,7 +42,7 @@ function createCourt() {
     game.add.sprite(20, -100, 'babymonkey');
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
-    platforms = game.add.group();
+    platforms = game.add.group(); 
     
     // Here we create the ground.
     //ground = platforms.create(0, game.world.height - 64, 'ground');

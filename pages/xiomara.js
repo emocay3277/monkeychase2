@@ -69,6 +69,8 @@ function createXiomara() {
     //  Our controls.
     keys = game.input.keyboard.createCursorKeys();
     
+    this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    
     // Add animations to the player
     player.animations.add('left', [ 1, 2, 3, 4, 5], 10, true);
     player.animations.add('right', [ 7, 9, 7, 9], 10, true);
@@ -114,7 +116,7 @@ function updateXiomara() {
         player.frame = 6;
     }
     
-    if (keys.up.isDown) {
+    if (this.spaceKey.isDown) {
         player.body.velocity.y = -350;
     }
 }

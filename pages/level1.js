@@ -49,7 +49,7 @@ function createCourt() {
     tigerNumberOne.scale.setTo(2, 2);
     
     
-     var tigerNumbertwo = game.add.sprite(812, 210, 'tiger');
+     var tigerNumbertwo = game.add.sprite(, 257, 'tiger');
     tigerNumberOne.scale.setTo(2, 2);
     
      var tigerNumberthree = game.add.sprite(775, 210, 'tiger');
